@@ -1,0 +1,25 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always"
+    },
+    "files.insertFinalNewline": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "flake8.args": [
+        "--config=.flake8"
+    ],
+    "cSpell.words": [
+        "alefragani",
+        "autoupdate",
+        "azuretools",
+        "devcontainer",
+        "eamodio",
+        "isort",
+        "mypy",
+        "venv",
+        "yzhang",
+    ]
+}
