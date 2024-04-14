@@ -1,10 +1,18 @@
 {
-    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": "always"
     },
     "files.insertFinalNewline": true,
+    "bookmarks.saveBookmarksInProject": true,
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.inlayHints.callArgumentNames": "all",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.autoImportCompletions": true,
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
@@ -12,14 +20,16 @@
         "--config=.flake8"
     ],
     "cSpell.words": [
-        "alefragani",
+        "alefragnani",
         "autoupdate",
         "azuretools",
         "devcontainer",
         "eamodio",
         "isort",
+        "mechatroner",
         "mypy",
+        "pydantic",
         "venv",
-        "yzhang",
+        "yzhang"
     ]
 }
