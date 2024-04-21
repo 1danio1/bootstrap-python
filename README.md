@@ -6,6 +6,8 @@ pre-commit run --all-files
 pre-commit autoupdate
 
 poetry run python bootstrap_python
+
+poetry build
 ```
 
 TODO describe what needs to be changed
