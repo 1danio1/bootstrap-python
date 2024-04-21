@@ -8,6 +8,8 @@ pre-commit autoupdate
 poetry run python bootstrap_python
 
 poetry build
+
+docker compose up
 ```
 
 TODO describe what needs to be changed
