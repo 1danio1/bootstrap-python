@@ -16,8 +16,19 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
+    "black-formatter.args": [
+        "--config",
+        "pyproject.toml"
+    ],
     "flake8.args": [
         "--config=.flake8"
+    ],
+    "mypy-type-checker.args": [
+        "--config-file=pyproject.toml"
+    ],
+    "isort.args": [
+        "--settings-file",
+        "pyproject.toml"
     ],
     "cSpell.words": [
         "alefragnani",
@@ -31,5 +42,6 @@
         "pydantic",
         "venv",
         "yzhang"
-    ]
+    ],
+    "cSpell.blockCheckingWhenTextChunkSizeGreaterThan": 2000
 }
