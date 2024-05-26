@@ -36,6 +36,7 @@
         "azuretools",
         "devcontainer",
         "eamodio",
+        "extensionpack",
         "isort",
         "mechatroner",
         "mypy",
