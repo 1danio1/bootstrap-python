@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "alefragnani.Bookmarks",
+        "eamodio.gitlens",
+        "mechatroner.rainbow-csv",
+        "ms-azuretools.vscode-docker",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "ms-python.isort",
+        "ms-python.mypy-type-checker",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker",
+        "yzhang.markdown-all-in-one",
+    ]
+}
