@@ -30,7 +30,8 @@
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": {
-		"poetry": "poetry install && if [ ! -e .venv ]; then ln -s $(poetry env info --path) .venv; fi"
+		"poetry": "poetry install && if [ ! -e .venv ]; then ln -s $(poetry env info --path) .venv; fi",
+		"safe directory": "git config --global --add safe.directory /workspaces/bootstrap-python"
 	}
 	// Configure tool-specific properties.
 	// "customizations": {},

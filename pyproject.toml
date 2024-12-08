@@ -6,21 +6,21 @@ authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.13"
 python-dotenv = "^1.0.1"
-pydantic = "^2.7.0"
-pydantic-settings = "^2.2.1"
-requests = "^2.31.0"
+pydantic = "^2.10.3"
+pydantic-settings = "^2.6.1"
+requests = "^2.32.3"
 
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "^3.6.2"
+pre-commit = "^4.0.1"
 isort = "^5.13.2"
-mypy = "^1.9.0"
-black = "^24.3.0"
-flake8 = "^7.0.0"
-types-requests = "^2.31.0.20240406"
-poetry-types = "^0.5.0"
+mypy = "^1.13.0"
+black = "^24.10.0"
+flake8 = "^7.1.1"
+types-requests = "^2.32.0.20241016"
+poetry-types = "^0.5.1"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,12 +1,14 @@
 
-ARG PYTHON_VERSION=3.12.3
+ARG PYTHON_VERSION=3.13.1
 ARG UID=10001
 ARG CURRENT_USER='appuser'
+ARG WORKDIR='/app'
 
-FROM python:${PYTHON_VERSION}-slim as builder
+FROM python:${PYTHON_VERSION}-alpine3.20 AS builder
 
 ARG UID
 ARG CURRENT_USER
+ARG WORKDIR
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -25,11 +27,11 @@ RUN adduser \
     --uid "${UID}" \
     "${CURRENT_USER}"
 
-RUN apt-get update && \
-    apt-get -y install curl && \
-    apt-get clean autoclean && \
-    apt-get autoremove --yes && \
-    rm -rf /var/lib/{apt,dpkg,cache,log}/
+RUN apk update && \
+    apk upgrade && \
+    apk add curl && \
+    rm -rf /var/cache/apk/ && \
+    rm -rf /var/lib/{dpkg,cache,log}/
 
 RUN mkdir ${POETRY_CACHE_DIR} && \
     chown ${CURRENT_USER}:${CURRENT_USER} ${POETRY_CACHE_DIR} && \
@@ -37,7 +39,7 @@ RUN mkdir ${POETRY_CACHE_DIR} && \
 
 USER ${CURRENT_USER}
 
-WORKDIR /app
+WORKDIR ${WORKDIR}
 
 COPY pyproject.toml poetry.lock README.md ./
 
@@ -49,10 +51,11 @@ COPY . .
 RUN poetry build --format wheel
 
 
-FROM python:${PYTHON_VERSION}-slim as runner
+FROM python:${PYTHON_VERSION}-alpine3.20 AS runner
 
 ARG UID
 ARG CURRENT_USER
+ARG WORKDIR
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
@@ -66,12 +69,17 @@ RUN adduser \
     --uid "${UID}" \
     "${CURRENT_USER}"
 
-WORKDIR /app
+RUN apk update && \
+    apk upgrade && \
+    apk add curl && \
+    rm -rf /var/cache/apk/ && \
+    rm -rf /var/lib/{dpkg,cache,log}/
 
-COPY --from=builder /app/dist .
+COPY --from=builder ${WORKDIR}/dist ${WORKDIR}
 
-RUN pip install *.whl --no-cache-dir && \
-    rm -f *.whl
+RUN pip install ${WORKDIR}/*.whl --no-cache-dir && \
+    rm -f ${WORKDIR}/*.whl \
+    rm -rf ${WORKDIR}/
 
 USER ${CURRENT_USER}
 
