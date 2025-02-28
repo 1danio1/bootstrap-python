@@ -35,7 +35,7 @@ Everything configured in a way I like to quickly start new Python package develo
 
 ```bash
 poetry install
-ls -s $(poetry env info --path) .venv
+ln -s $(poetry env info --path) .venv
 pre-commit install
 pre-commit autoupdate
 pre-commit run --all-files
