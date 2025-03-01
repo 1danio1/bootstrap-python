@@ -38,6 +38,8 @@
         "autoupdate",
         "azuretools",
         "devcontainer",
+        "devcontainers",
+        "dpkg",
         "eamodio",
         "extensionpack",
         "gecos",
@@ -52,6 +54,7 @@
         "pyright",
         "pythondontwritebytecode",
         "pythonunbuffered",
+        "typeshed",
         "venv",
         "yzhang"
     ],
