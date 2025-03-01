@@ -1,10 +1,11 @@
 
-ARG PYTHON_VERSION=3.13.1
+ARG PYTHON_VERSION=3.13.2
+ARG ALPINE_VERSION=3.21
 ARG UID=10001
 ARG CURRENT_USER='appuser'
 ARG WORKDIR='/app'
 
-FROM python:${PYTHON_VERSION}-alpine3.20 AS builder
+FROM python:${PYTHON_VERSION}-alpine${ALPINE_VERSION} AS builder
 
 ARG UID
 ARG CURRENT_USER
@@ -51,7 +52,7 @@ COPY . .
 RUN poetry build --format wheel
 
 
-FROM python:${PYTHON_VERSION}-alpine3.20 AS runner
+FROM python:${PYTHON_VERSION}-alpine${ALPINE_VERSION} AS runner
 
 ARG UID
 ARG CURRENT_USER
